@@ -9,5 +9,7 @@ def homepage(request):
     posts_lists = list()
     for count, post in enumerate(posts):
         posts_lists.append("No.{}:".format(str(count)) + str(post)+"<br>")
+        posts_lists.append(("<small>")+ str(post.body.encode('utf-8')) \
++"</small><br><br>" )
 
     return  HttpResponse(posts_lists)
