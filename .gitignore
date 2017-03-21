@@ -3,6 +3,3 @@
 __pycache__
 staticfiles
 *.iml
-mblog/settings.py
-mblog/settings
-settings.py
