@@ -4,13 +4,16 @@ from django.utils import timezone
 # Create your models here.
 
 class Post(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.CharField(max_length=200)
-    body = models.TextField()
-    pub_date = models.DateTimeField(default=timezone.now)
+    title = models.CharField(max_length=200,verbose_name=u'title(標題)')
+    slug = models.CharField(max_length=200,verbose_name=u'slug(網址)')
+    body = models.TextField(verbose_name=u'body內文')
+    pub_date = models.DateTimeField(default=timezone.now,verbose_name=u'現在時刻')
+
 
     class Meta:
         ordering = ('-pub_date',)
+        verbose_name = u"Post貼文"
+        verbose_name_plural = u"Post貼文"
 
     def __unicode__(self):
         return self.title
