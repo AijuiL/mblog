@@ -34,5 +34,16 @@ class NewTable(models.Model):
         verbose_name = u"新標題"
         verbose_name_plural = u"NewTable"
 
+class Product(models.Model):
+    SIZES= (
+        ('S', 'Small'),
+        ('M', 'Medium'),
+        ('L', 'Large') ,
+    )
+    sku   = models.CharField(max_length=5)
+    name  = models.CharField(max_length=20)
+    price = models.PositiveIntegerField()
+    size  = models.CharField(max_length=1, choices=SIZES)
+
 
 
