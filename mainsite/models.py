@@ -28,7 +28,7 @@ class NewTable(models.Model):
     decimal_f= models.DecimalField(max_digits=10, decimal_places=2,verbose_name=u'定點小數數值資料')
     float_f  = models.FloatField(null=True,verbose_name=u"浮點數")
     int_f    = models.IntegerField(default=2010,verbose_name=u'整數欄位')
-    text_f   = models.TextField(verbose_name=u'用在HTML表單')
+    text_f   = models.TextField(null=True,verbose_name=u'用在HTML表單')
 
     class Meta:
         verbose_name = u"新標題"
@@ -40,10 +40,15 @@ class Product(models.Model):
         ('M', 'Medium'),
         ('L', 'Large') ,
     )
-    sku   = models.CharField(max_length=5)
+
+    sku   = models.CharField(max_length=10)
     name  = models.CharField(max_length=20)
     price = models.PositiveIntegerField()
     size  = models.CharField(max_length=1, choices=SIZES)
+    qty   = models.BigIntegerField(null=True)
 
+
+    def __unicode__(self):
+        return self.name
 
 
